@@ -1,15 +1,13 @@
 # SaviDoc
 SaviDoc takes formatted comments in SAS code and creates HTML documentation.
 
-alling SaviDoc:
-
-Example:
+## Example:
 
 	SaviDoc.exe -s "X:\Data\WF\Server\sas" -d "z:\scratch\SaviDocOut" -e "X:\Data\WF\Server\sas\archive" -l "z:\scratch\savidoc.log" -u
 	Use SaviDoc.exe --help to see options
 
 
-Usage:
+## Usage:
 
 	SaviDoc supports the documentation of SAS code.
 	SaviDoc uses pipes as delimiters within statements
