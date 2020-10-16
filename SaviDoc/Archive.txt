@@ -1,0 +1,297 @@
+﻿        private static string GetDirRoot(string dir, string commonPath)
+        {
+            var root = string.Empty;
+            if ((dir.IndexOf(":") == 1) || (dir.IndexOf("\\\\") == 0))
+            {
+                root = dir.Substring(2);
+            }
+            if (root.IndexOf("\\") > 0)
+                root = root.Substring(root.IndexOf("\\"));
+            return root.Replace(commonPath, string.Empty);
+        }
+
+		=====================
+
+		<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>SaviDoc Contents</title>
+    <style id="compiled-css" type="text/css">
+        body {
+            font-family: Arial;
+        }
+
+        ul.tree li {
+            list-style-type: none;
+            position: relative;
+        }
+
+            ul.tree li ul {
+                display: none;
+            }
+
+            ul.tree li.open > ul {
+                display: block;
+            }
+
+            ul.tree li a {
+                color: black;
+                text-decoration: none;
+            }
+
+                ul.tree li a:before {
+                    height: 1em;
+                    padding: 0 .1em;
+                    font-size: .8em;
+                    display: block;
+                    position: absolute;
+                    left: -1.3em;
+                    top: .2em;
+                }
+
+            ul.tree li > a:not(:last-child):before {
+                content: '+';
+            }
+
+            ul.tree li.open > a:not(:last-child):before {
+                content: '-';
+            }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var tree = document.querySelectorAll('ul.tree a:not(:last-child)');
+            for (var i = 0; i < tree.length; i++) {
+                tree[i].addEventListener('click', function (e) {
+                    var parent = e.target.parentElement;
+                    var classList = parent.classList;
+                    if (classList.contains("open")) {
+                        classList.remove('open');
+                        var opensubs = parent.querySelectorAll(':scope .open');
+                        for (var i = 0; i < opensubs.length; i++) {
+                            opensubs[i].classList.remove('open');
+                        }
+                    } else {
+                        classList.add('open');
+                    }
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul class="tree">
+        <li>
+            <a href="#">Part 1</a>
+            <ul>
+                <li>
+                    <a href="#">Item A</a>
+                    <ul>
+                        <li><a href="#">Sub-item 1</a></li>
+                        <li><a href="#">Sub-item 2</a></li>
+                        <li><a href="#">Sub-item 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Item B</a>
+                    <ul>
+                        <li><a href="#">Sub-item 1</a></li>
+                        <li><a href="#">Sub-item 2</a></li>
+                        <li><a href="#">Sub-item 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Item C</a>
+                    <ul>
+                        <li><a href="#">Sub-item 1</a></li>
+                        <li><a href="#">Sub-item 2</a></li>
+                        <li><a href="#">Sub-item 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Item D</a>
+                    <ul>
+                        <li><a href="#">Sub-item 1</a></li>
+                        <li><a href="#">Sub-item 2</a></li>
+                        <li><a href="#">Sub-item 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Item E</a>
+                    <ul>
+                        <li><a href="#">Sub-item 1</a></li>
+                        <li><a href="#">Sub-item 2</a></li>
+                        <li><a href="#">Sub-item 3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Part 2</a>
+            <ul>
+                <li>
+                    <a href="#">Item A</a>
+                    <ul>
+                        <li><a href="#">Sub-item 1</a></li>
+                        <li><a href="#">Sub-item 2</a></li>
+                        <li><a href="#">Sub-item 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Item B</a>
+                    <ul>
+                        <li><a href="#">Sub-item 1</a></li>
+                        <li><a href="#">Sub-item 2</a></li>
+                        <li><a href="#">Sub-item 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Item C</a>
+                    <ul>
+                        <li><a href="#">Sub-item 1</a></li>
+                        <li><a href="#">Sub-item 2</a></li>
+                        <li><a href="#">Sub-item 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Item D</a>
+                    <ul>
+                        <li><a href="#">Sub-item 1</a></li>
+                        <li><a href="#">Sub-item 2</a></li>
+                        <li><a href="#">Sub-item 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Item E</a>
+                    <ul>
+                        <li><a href="#">Sub-item 1</a></li>
+                        <li><a href="#">Sub-item 2</a></li>
+                        <li><a href="#">Sub-item 3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Part 3</a>
+            <ul>
+                <li>
+                    <a href="#">Item A</a>
+                    <ul>
+                        <li><a href="#">Sub-item 1</a></li>
+                        <li><a href="#">Sub-item 2</a></li>
+                        <li><a href="#">Sub-item 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Item B</a>
+                    <ul>
+                        <li><a href="#">Sub-item 1</a></li>
+                        <li><a href="#">Sub-item 2</a></li>
+                        <li><a href="#">Sub-item 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Item C</a>
+                    <ul>
+                        <li><a href="#">Sub-item 1</a></li>
+                        <li><a href="#">Sub-item 2</a></li>
+                        <li><a href="#">Sub-item 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Item D</a>
+                    <ul>
+                        <li><a href="#">Sub-item 1</a></li>
+                        <li><a href="#">Sub-item 2</a></li>
+                        <li><a href="#">Sub-item 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Item E</a>
+                    <ul>
+                        <li><a href="#">Sub-item 1</a></li>
+                        <li><a href="#">Sub-item 2</a></li>
+                        <li><a href="#">Sub-item 3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
+===========================================
+
+#region obsolete
+
+//    switch (parm)
+//    {
+//        case ("AUTHOR"):
+//        case ("AUTHORS"):
+//            header.Author = value;
+//            break;
+//        case ("COMPANY"):
+//            header.Company = value;
+//            break;
+//        case ("LOCATION"):
+//            header.Location = value;
+//            break;
+//        case ("SAS VERSION"):
+//            header.SasVersion = value;
+//            break;
+//        case ("DESCRIPTION"):
+//            header.Description = value;
+//            break;
+//        default:
+//            break;
+//    }
+
+/// <summary>
+/// Obtains the code that follows a comment section
+/// </summary>
+/// <param name="match">The matching comment section</param>
+/// <returns>The code associated with the comment</returns>
+//protected string GetAssociatedCode(Match match, string sasProgram)
+//{
+//    string code = "";
+//    try
+//    {
+//        if (_codeLength != null)
+//            code = sasProgram.Substring(match.Index + match.Length, (int)_codeLength);
+//        else
+//            code = sasProgram.Substring(match.Index + match.Length);
+
+//    }
+//    catch (Exception ex)
+//    {
+//        Log.Error(ex, "Unable to get associated code.");
+//    }
+//    return code;
+//}
+
+/// <summary>
+/// Gets a specific comment value for a specific type
+/// </summary>
+/// <param name="match">The matched string</param>
+/// <param name="type">The type of the tag</param>
+/// <param name="name">The tag name for the pattern</param>
+/// <returns></returns>
+//protected string GetValueComment(Match match, string type, string name)
+//{
+//    string value = "";
+//    try
+//    {
+//        var pattern = Common.GetPattern(type, name);
+//        var specific = pattern.Match(match.Value);
+//        if (specific != null)
+//            value = specific.Groups["value"].Value;
+
+//    }
+//    catch (Exception ex)
+//    {
+//        Log.Error("Unable to get value comment.", ex);
+//    }
+//    return value;
+//}
+#endregion obsolete
+

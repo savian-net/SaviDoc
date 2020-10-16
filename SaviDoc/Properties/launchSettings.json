@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SaviDoc": {
+      "commandName": "Project",
+      "commandLineArgs": "-s \"X:\\Data\\WF\\Server\" -d \"z:\\scratch\\SaviDocOut\" -e \"X:\\Data\\WF\\Server\\archive\" -l \"z:\\scratch\\savidoc.log\" -u"
+    }
+  }
+}
