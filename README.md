@@ -1,5 +1,5 @@
 # SaviDoc
-SaviDoc takes formatted comments in SAS code and creates HTML documentation.
+SaviDoc takes formatted comments in SAS code and creates nicely formatted HTML documentation.
 
 ## Example:
 
